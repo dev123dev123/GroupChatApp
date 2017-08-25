@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="gN2-Sk-Get">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Enter Name View Controller-->
+        <scene sceneID="1Aq-fI-asx">
+            <objects>
+                <viewController id="gN2-Sk-Get" customClass="EnterNameViewController" customModule="TestChatLib" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BNX-Ve-cqI"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZHQ-Xu-07l"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fTV-9G-8a5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="06u-Ih-KOM">
+                                <rect key="frame" x="16" y="293" width="343" height="80"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gep-qT-NXG">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ha2-zo-oAy">
+                                        <rect key="frame" x="0.0" y="50" width="343" height="30"/>
+                                        <state key="normal" title="Enter"/>
+                                        <connections>
+                                            <action selector="enterTouched" destination="gN2-Sk-Get" eventType="touchUpInside" id="Bfb-Ol-0lS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="06u-Ih-KOM" firstAttribute="centerY" secondItem="fTV-9G-8a5" secondAttribute="centerY" id="19t-jo-W1I"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="06u-Ih-KOM" secondAttribute="trailing" id="X0L-B3-Vck"/>
+                            <constraint firstItem="06u-Ih-KOM" firstAttribute="leading" secondItem="fTV-9G-8a5" secondAttribute="leadingMargin" id="ab4-HY-275"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="usernameTextField" destination="gep-qT-NXG" id="WMY-9o-rLi"/>
+                        <segue destination="R9b-tN-uER" kind="show" identifier="ShowRooms" id="1Cd-7A-DOX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dco-xd-pVf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-854" y="385"/>
+        </scene>
+        <!--Rooms-->
+        <scene sceneID="mMM-NR-zY0">
+            <objects>
+                <tableViewController id="KZj-YN-DVG" customClass="ChatRoomsViewController" customModule="TestChatLib" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jJ1-ee-qRO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoomId" id="QEb-DD-eUD">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QEb-DD-eUD" id="Ftk-l3-Ge0">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="KZj-YN-DVG" id="bca-AD-Yvw"/>
+                            <outlet property="delegate" destination="KZj-YN-DVG" id="Ps2-68-1Us"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Rooms" id="9P1-dY-wF1">
+                        <barButtonItem key="rightBarButtonItem" title="New Room" id="wte-We-URw">
+                            <connections>
+                                <action selector="newRoomTouched:" destination="KZj-YN-DVG" id="mVh-G7-EDP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="lFK-af-c2f" kind="show" identifier="ShowCreateRoom" id="Vkd-vR-TOV"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ShowChat" id="8cB-2N-Xkv"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LYc-Pf-glA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1135" y="385"/>
+        </scene>
+        <!--New Room-->
+        <scene sceneID="lVy-pw-czY">
+            <objects>
+                <viewController id="lFK-af-c2f" customClass="NewRoomViewController" customModule="TestChatLib" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hM8-Rf-Pdz"/>
+                        <viewControllerLayoutGuide type="bottom" id="fPh-cJ-0zy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Gdc-Rs-lpk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Pyk-NL-teO">
+                                <rect key="frame" x="16" y="84" width="343" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Chat Room Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fjP-Ft-Bxf">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="TPZ-Kn-BPn">
+                                        <rect key="frame" x="0.0" y="30" width="343" height="30"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vCO-zZ-yr9">
+                                                <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                                <state key="normal" title="Create"/>
+                                                <connections>
+                                                    <action selector="createTouched:" destination="lFK-af-c2f" eventType="touchUpInside" id="hn3-YB-hDb"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pyk-NL-teO" firstAttribute="top" secondItem="hM8-Rf-Pdz" secondAttribute="bottom" constant="20" id="Ojy-ih-PEZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pyk-NL-teO" secondAttribute="trailing" id="Xzp-MY-5Re"/>
+                            <constraint firstItem="Pyk-NL-teO" firstAttribute="leading" secondItem="Gdc-Rs-lpk" secondAttribute="leadingMargin" id="acB-0t-mhJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New Room" id="tg5-DS-EWT"/>
+                    <connections>
+                        <outlet property="roomNameTextField" destination="fjP-Ft-Bxf" id="dfa-To-M1S"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sRr-u9-Rzo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2137" y="-61"/>
+        </scene>
+        <!--Chat View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ChatViewController" customModule="TestChatLib" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2137" y="782"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cyN-Qw-8aH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R9b-tN-uER" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hvB-5i-72V">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KZj-YN-DVG" kind="relationship" relationship="rootViewController" id="Da8-aj-Ccu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZrG-fE-2Zu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="165.59999999999999" y="384.55772113943033"/>
+        </scene>
+    </scenes>
+</document>
